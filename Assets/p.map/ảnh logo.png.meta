@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: ce7b312a0a2281c4890bdc16c20a14bc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8511504838309211059
+    second: "\u1EA3nh logo_0"
+  - first:
+      213: -8205128051012725505
+    second: "\u1EA3nh logo_1"
+  - first:
+      213: -8353104742510111846
+    second: "\u1EA3nh logo_2"
+  - first:
+      213: 1094695543967482760
+    second: "\u1EA3nh logo_3"
+  - first:
+      213: 4136644924651077196
+    second: "\u1EA3nh logo_4"
+  - first:
+      213: -340831760413222827
+    second: "\u1EA3nh logo_5"
+  - first:
+      213: -2906301159526957081
+    second: "\u1EA3nh logo_6"
+  - first:
+      213: 208383638256154739
+    second: "\u1EA3nh logo_7"
+  - first:
+      213: 3020075662120559804
+    second: "\u1EA3nh logo_8"
+  - first:
+      213: -3048159059223542567
+    second: "\u1EA3nh logo_9"
+  - first:
+      213: 7630193499184074492
+    second: "\u1EA3nh logo_10"
+  - first:
+      213: -6124094089079391023
+    second: "\u1EA3nh logo_11"
+  - first:
+      213: -2570408604281582830
+    second: "\u1EA3nh logo_12"
+  - first:
+      213: 4307467139726960495
+    second: "\u1EA3nh logo_13"
+  - first:
+      213: -5781769759410978161
+    second: "\u1EA3nh logo_14"
+  - first:
+      213: 1799623580344774999
+    second: "\u1EA3nh logo_15"
+  - first:
+      213: -4352618151269767370
+    second: "\u1EA3nh logo_16"
+  - first:
+      213: 1634974777869893480
+    second: "\u1EA3nh logo_17"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_0"
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 1021
+        height: 1019
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d449f88027f01e980800000000000000
+      internalID: -8511504838309211059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_1"
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 965
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff41bce9287812e80800000000000000
+      internalID: -8205128051012725505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_2"
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 595
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a93dd0b4e7fc31c80800000000000000
+      internalID: -8353104742510111846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_3"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 544
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 883826b1cc3213f00800000000000000
+      internalID: 1094695543967482760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_4"
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 487
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4effbf54a0586930800000000000000
+      internalID: 4136644924651077196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_5"
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 467
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5581668d15f154bf0800000000000000
+      internalID: -340831760413222827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_6"
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 417
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7eff6106e7ebaa7d0800000000000000
+      internalID: -2906301159526957081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_7"
+      rect:
+        serializedVersion: 2
+        x: 970
+        y: 89
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 378f24f90d354e200800000000000000
+      internalID: 208383638256154739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_8"
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 64
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb4af7b40d679e920800000000000000
+      internalID: 3020075662120559804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_9"
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 67
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d487184c73c2b5d0800000000000000
+      internalID: -3048159059223542567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_10"
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 67
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfe8c5e9f84e3e960800000000000000
+      internalID: 7630193499184074492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_11"
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 63
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dc7a517fd8d20ba0800000000000000
+      internalID: -6124094089079391023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_12"
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 66
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21b40363ef2145cd0800000000000000
+      internalID: -2570408604281582830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_13"
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 60
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f67e719aa8237cb30800000000000000
+      internalID: 4307467139726960495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_14"
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 63
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f828635790703cfa0800000000000000
+      internalID: -5781769759410978161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_15"
+      rect:
+        serializedVersion: 2
+        x: 849
+        y: 66
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751fddb8c1c89f810800000000000000
+      internalID: 1799623580344774999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_16"
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 48
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637e5a24ad46893c0800000000000000
+      internalID: -4352618151269767370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "\u1EA3nh logo_17"
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 21
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86f78a3e5e890b610800000000000000
+      internalID: 1634974777869893480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "\u1EA3nh logo_0": -8511504838309211059
+      "\u1EA3nh logo_1": -8205128051012725505
+      "\u1EA3nh logo_10": 7630193499184074492
+      "\u1EA3nh logo_11": -6124094089079391023
+      "\u1EA3nh logo_12": -2570408604281582830
+      "\u1EA3nh logo_13": 4307467139726960495
+      "\u1EA3nh logo_14": -5781769759410978161
+      "\u1EA3nh logo_15": 1799623580344774999
+      "\u1EA3nh logo_16": -4352618151269767370
+      "\u1EA3nh logo_17": 1634974777869893480
+      "\u1EA3nh logo_2": -8353104742510111846
+      "\u1EA3nh logo_3": 1094695543967482760
+      "\u1EA3nh logo_4": 4136644924651077196
+      "\u1EA3nh logo_5": -340831760413222827
+      "\u1EA3nh logo_6": -2906301159526957081
+      "\u1EA3nh logo_7": 208383638256154739
+      "\u1EA3nh logo_8": 3020075662120559804
+      "\u1EA3nh logo_9": -3048159059223542567
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
