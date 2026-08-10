@@ -1,9 +1,23 @@
 using System.Collections;
 using UnityEngine;
-
+using Unity.Cinemachine;
 public class QuestManager : MonoBehaviour
 {
+    // camemra cinemachine để focus vào khu vực mới khi mở khóa
+    [SerializeField]
+    private CinemachineCamera cinemachineCamera;
+
+    [SerializeField]
+    private Transform player;
+
+    [SerializeField]
+    private Transform unlockAreaTarget;
+    // điều kiện mở khóa khu vực mới (số hoa cần thu thập)
+    [SerializeField] private int unlockAreaFlowerCount = 3;
+    private bool areaUnlocked = false;
     public static QuestManager Instance;
+    [SerializeField]
+    private AreaBarrier areaBarrier;
 
     [Header("Quest UI")]
     [SerializeField] private QuestUI questUI;
@@ -66,6 +80,10 @@ public class QuestManager : MonoBehaviour
             portal.gameObject.SetActive(false);
         }
     }
+    public bool IsAreaUnlocked()
+    {
+        return areaUnlocked;
+    }
 
 
     // =====================================================
@@ -90,6 +108,13 @@ public class QuestManager : MonoBehaviour
             "/" +
             targetFlower
         );
+        if (!areaUnlocked &&
+        currentFlower >= unlockAreaFlowerCount)
+        {
+        areaUnlocked = true;
+
+        UnlockRestrictedArea();
+        }
 
         if (currentFlower >= targetFlower && !battleStarted)
         {
@@ -97,6 +122,59 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    // mở khóa khu vực bị giới hạn khi đủ số hoa
+    private IEnumerator FocusUnlockedArea()
+{
+    if (cinemachineCamera == null)
+        yield break;
+
+    if (unlockAreaTarget == null)
+        yield break;
+
+    if (player == null)
+        yield break;
+
+    // ==================================
+    // CAMERA ĐI TỚI AREA
+    // ==================================
+
+    cinemachineCamera.Follow =
+        unlockAreaTarget;
+
+    Debug.Log(
+        "Camera đang di chuyển tới Area!"
+    );
+
+    // Cho camera bay tới
+    yield return new WaitForSeconds(2f);
+
+    // ==================================
+    // PLAY EFFECT
+    // ==================================
+
+    if (areaBarrier != null)
+    {
+        areaBarrier.ShowGlow();
+    }
+
+    // Chờ hiệu ứng
+    yield return new WaitForSeconds(3.5f);
+
+    // ==================================
+    // CAMERA QUAY LẠI
+    // ==================================
+
+    cinemachineCamera.Follow =
+        player;
+
+    Debug.Log(
+        "Camera quay lại Player!"
+    );
+}
+private void UnlockRestrictedArea()
+{
+    StartCoroutine(FocusUnlockedArea());
+}
 
     // =====================================================
     // BẮT ĐẦU COMBAT

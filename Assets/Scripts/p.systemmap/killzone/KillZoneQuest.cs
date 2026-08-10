@@ -3,7 +3,7 @@ using UnityEngine;
 public class KillZoneQuest : MonoBehaviour
 {
     [Header("Quest Condition")]
-    [SerializeField] private int requiredFlower = 5 ;
+    [SerializeField] private int requiredFlower = 3;
 
     [Header("Kill")]
     [SerializeField] private float killDamage = 999999f;
@@ -13,17 +13,22 @@ public class KillZoneQuest : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        // Đủ số hoa -> cho đi qua
-        if (QuestManager.Instance.currentFlower >= requiredFlower)
+        // Khu vực đã được mở
+        if (QuestManager.Instance.IsAreaUnlocked())
         {
-            Debug.Log("Đủ hoa, được phép đi qua.");
+            Debug.Log("Khu vực đã được mở. Người chơi được phép đi qua.");
             return;
         }
 
-        // Chưa đủ hoa -> chết
-        Debug.Log("Chưa thu thập đủ " + requiredFlower + " bông hoa!");
+        // Chưa đủ điều kiện
+        Debug.Log(
+            "Chưa thu thập đủ " +
+            requiredFlower +
+            " bông hoa!"
+        );
 
-        Entity_Health health = other.GetComponent<Entity_Health>();
+        Entity_Health health =
+            other.GetComponent<Entity_Health>();
 
         if (health != null)
         {
