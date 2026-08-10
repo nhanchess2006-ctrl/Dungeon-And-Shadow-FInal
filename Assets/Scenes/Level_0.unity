@@ -35615,7 +35615,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4519573479659111353, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
       propertyPath: m_Name
-      value: Object_Waypoint - Exit - Level_1
+      value: Object_Waypoint - Exit - Level_2
       objectReference: {fileID: 0}
     - target: {fileID: 4519573479659111353, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
       propertyPath: m_IsActive
@@ -35628,6 +35628,10 @@ PrefabInstance:
     - target: {fileID: 6587149263153612741, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
       propertyPath: conntedWaypoint
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587149263153612741, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
+      propertyPath: transferToScene
+      value: Level_2
       objectReference: {fileID: 0}
     - target: {fileID: 7697076293366136013, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -36081,6 +36085,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6581212109225222161, guid: aab13e6eb9b66a546959d86cd13c7dfc, type: 3}
+      propertyPath: skillPoints
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6690543955147196965, guid: aab13e6eb9b66a546959d86cd13c7dfc, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -36277,7 +36285,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 626524063579701930, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: offense.damage.baseValue
-      value: 1
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 626524063579701930, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 958043793268931921, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: m_AnchorMax.x
@@ -36334,6 +36346,10 @@ PrefabInstance:
     - target: {fileID: 7566861989324100011, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8405265872060402481, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
+      propertyPath: gold
+      value: 800
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

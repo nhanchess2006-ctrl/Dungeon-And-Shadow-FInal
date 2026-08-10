@@ -311,6 +311,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6409625887082432548, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton
@@ -1753,6 +1761,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6409625887082432548, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton (2)
@@ -2393,6 +2409,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6409625887082432548, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton (1)
@@ -2955,9 +2979,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Thu th\u1EADp \u0111\u1EE7 t\u1ED5ng s\u1ED1 20 b\xF4ng hoa \nG\u1EE3i
-    \xFD : c\xE1nh c\u1ED5ng ch\u1EC9 s\u1EBD m\u1EDF khi thu th\u1EADp \u0111\u1EE7
-    10 b\xF4ng "
+  m_text: Collect 5 flower
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3815,6 +3837,10 @@ PrefabInstance:
     - target: {fileID: 6895472330203556246, guid: 350c0848b6de5a043bd248401fcda56c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164392113718489575, guid: 350c0848b6de5a043bd248401fcda56c, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9217941195825722714, guid: 350c0848b6de5a043bd248401fcda56c, type: 3}
       propertyPath: m_Name
@@ -54146,7 +54172,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 495}
+  m_AnchoredPosition: {x: 0, y: 411}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1498049134
@@ -54169,7 +54195,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Nh\u1EB7t Hoa V\u0169 Thi\xEAn "
+  m_text: Collect Sea Flower
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -54588,7 +54614,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ho\xE0ng Th\xE0nh Nhi\u1EC7m V\u1EE5"
+  m_text: 'Mission Complete
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -54815,11 +54843,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 626524063579701930, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: offense.damage.baseValue
-      value: 1
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 626524063579701930, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: resources.maxHealth.baseValue
-      value: 100
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 958043793268931921, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: m_AnchorMax.x
@@ -77725,6 +77753,10 @@ PrefabInstance:
     - target: {fileID: 6895472330203556246, guid: 350c0848b6de5a043bd248401fcda56c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164392113718489575, guid: 350c0848b6de5a043bd248401fcda56c, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 9164392113718489575, guid: 350c0848b6de5a043bd248401fcda56c, type: 3}
       propertyPath: resources.maxHealth.baseValue

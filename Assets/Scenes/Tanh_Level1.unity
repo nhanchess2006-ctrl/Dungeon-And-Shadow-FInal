@@ -7656,7 +7656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2195b0280b5bf224ab6f73eea1d7100e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: "Level2_R\u1EEBng"
+  sceneToLoad: Level_0
 --- !u!4 &178353572
 Transform:
   m_ObjectHideFlags: 0
@@ -16639,6 +16639,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: offense.damage.baseValue
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 6409625887082432548, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton (1)
@@ -20876,7 +20884,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 626524063579701930, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: offense.damage.baseValue
-      value: 1
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 626524063579701930, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 958043793268931921, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: m_AnchorMax.x

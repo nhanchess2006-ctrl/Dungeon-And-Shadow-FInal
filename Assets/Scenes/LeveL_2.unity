@@ -190,11 +190,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4519573479659111353, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
       propertyPath: m_Name
-      value: Object_Waypoint - Enter - Level_1
+      value: Object_Waypoint - Enter - Level_0
       objectReference: {fileID: 0}
     - target: {fileID: 4709655500282671208, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
       propertyPath: m_FlipX
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587149263153612741, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
+      propertyPath: transferToScene
+      value: Level_0
       objectReference: {fileID: 0}
     - target: {fileID: 7697076293366136013, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -711,10 +715,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 21.630518, y: 10.523334}
-      - {x: -18.07829, y: 10.644418}
-      - {x: -18.157965, y: -11.218242}
-      - {x: 21.775356, y: -11.144418}
+    - - {x: 80.79058, y: 10.938492}
+      - {x: -39.03149, y: 8.822811}
+      - {x: -38.98182, y: -47.174953}
+      - {x: 81.47526, y: -47.437737}
   m_UseDelaunayMesh: 0
 --- !u!4 &274070544 stripped
 Transform:
@@ -1354,6 +1358,10 @@ PrefabInstance:
     - target: {fileID: 2143046149361102411, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6409625887082432548, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
       propertyPath: m_Name
@@ -62121,6 +62129,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 6409625887082432548, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
       propertyPath: m_Name
       value: Enemy_Skeleton (2)
@@ -62563,7 +62575,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1454656417}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
   m_Name: 
@@ -62678,6 +62690,10 @@ PrefabInstance:
     - target: {fileID: 2143046149361102411, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4284223986879445403, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
+      propertyPath: resources.maxHealth.baseValue
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6409625887082432548, guid: bf4305a5f17a41745ac68d0ebde48a14, type: 3}
       propertyPath: m_Name
