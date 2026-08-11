@@ -161,7 +161,7 @@ public class Scene1BossBattle : MonoBehaviour
         // Bù đắp logic hệ thống Nhiệm vụ do ta đã xóa file Enemy_Health chứa dòng code số 35 lỗi
         if (QuestManager.Instance != null)
         {
-            QuestManager.Instance.bossDefeated = true;
+            QuestManager.Instance.wavesCompleted = true;
             Debug.Log("📜 [Quest System] Đã tự động ghi nhận điểm diệt Boss vào hệ thống Nhiệm vụ!");
         }
 

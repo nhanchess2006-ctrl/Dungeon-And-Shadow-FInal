@@ -39,7 +39,7 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private Transform portalSpawnPoint;
 
     // Giữ lại để Flower.cs / script cũ không bị lỗi
-    public bool bossDefeated = false;
+    public bool wavesCompleted = false;
 
     private bool battleStarted = false;
     private bool questCompleted = false;
@@ -116,9 +116,9 @@ public class QuestManager : MonoBehaviour
         UnlockRestrictedArea();
         }
 
-        if (currentFlower >= targetFlower && !battleStarted)
+        if (currentFlower >= targetFlower)
         {
-            StartBattle();
+            CompleteQuest();
         }
     }
 
@@ -180,16 +180,16 @@ private void UnlockRestrictedArea()
     // BẮT ĐẦU COMBAT
     // =====================================================
 
-    private void StartBattle()
+    public void StartBattleFromTrigger()
     {
-        if (battleStarted)
-            return;
+       if (battleStarted)
+        return;
 
-        battleStarted = true;
+       battleStarted = true;
 
-        Debug.Log("Đã nhặt đủ hoa!");
+      Debug.Log("Player đã kích hoạt Battle Trigger!");
 
-        StartCoroutine(BattleSequence());
+      StartCoroutine(BattleSequence());
     }
 
 
@@ -198,33 +198,55 @@ private void UnlockRestrictedArea()
     // =====================================================
 
     private IEnumerator BattleSequence()
+{
+    // =========================================
+    // WAVE 1
+    // =========================================
+
+    Debug.Log("Wave 1 bắt đầu!");
+
+    SetWaveActive(firstWaveEnemies, true);
+
+    if (!HasActiveEnemies(firstWaveEnemies))
     {
-        // WAVE 1
-        Debug.Log("Wave 1 bắt đầu!");
-
-        SetWaveActive(firstWaveEnemies, true);
-
-        yield return new WaitUntil(
-            () => IsWaveDead(firstWaveEnemies)
-        );
-
-        Debug.Log("Wave 1 đã chết hết!");
-
-        // WAVE 2 bật ngay
-        SetWaveActive(secondWaveEnemies, true);
-
-        Debug.Log("Wave 2 bắt đầu!");
-
-        yield return new WaitUntil(
-            () => IsWaveDead(secondWaveEnemies)
-        );
-
-        Debug.Log("Wave 2 đã chết hết!");
-
-        bossDefeated = true;
-
-        CompleteQuest();
+        Debug.LogError("Wave 1 không có Enemy được gán!");
+        yield break;
     }
+
+    yield return new WaitUntil(
+        () => IsWaveDead(firstWaveEnemies)
+    );
+
+    Debug.Log("Wave 1 đã chết hết!");
+
+    // =========================================
+    // WAVE 2
+    // =========================================
+
+    Debug.Log("Wave 2 bắt đầu!");
+
+    SetWaveActive(secondWaveEnemies, true);
+
+    if (!HasActiveEnemies(secondWaveEnemies))
+    {
+        Debug.LogError("Wave 2 không có Enemy được gán!");
+        yield break;
+    }
+
+    yield return new WaitUntil(
+        () => IsWaveDead(secondWaveEnemies)
+    );
+
+    Debug.Log("Wave 2 đã chết hết!");
+
+    // =========================================
+    // HOÀN THÀNH WAVE
+    // =========================================
+
+    wavesCompleted = true;
+
+    Debug.Log("Đã hoàn thành toàn bộ Wave!");
+}
 
 
     // =====================================================
@@ -250,58 +272,61 @@ private void UnlockRestrictedArea()
     // KIỂM TRA WAVE
     // =====================================================
 
-    private bool IsWaveDead(GameObject[] wave)
+    private bool HasActiveEnemies(GameObject[] wave)
+{
+    if (wave == null || wave.Length == 0)
+        return false;
+
+    foreach (GameObject enemy in wave)
     {
-        if (wave == null || wave.Length == 0)
+        if (enemy != null)
             return true;
-
-        foreach (GameObject enemy in wave)
-        {
-            /*
-             * Destroy(gameObject):
-             * enemy sẽ trở thành null.
-             *
-             * SetActive(false):
-             * enemy vẫn tồn tại nhưng activeInHierarchy = false.
-             *
-             * Cả hai trường hợp đều được tính là đã chết.
-             */
-            if (enemy != null && enemy.activeInHierarchy)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
+
+    return false;
+}
+private bool IsWaveDead(GameObject[] wave)
+{
+    if (wave == null || wave.Length == 0)
+        return true;
+
+    foreach (GameObject enemy in wave)
+    {
+        if (enemy != null && enemy.activeInHierarchy)
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 
     // =====================================================
     // HOÀN THÀNH QUEST
     // =====================================================
 
-    private void CompleteQuest()
+   private void CompleteQuest()
+{
+    if (questCompleted)
+        return;
+
+    questCompleted = true;
+
+    Debug.Log("HOÀN THÀNH NHIỆM VỤ!");
+
+    if (completePanel != null)
     {
-        if (questCompleted)
-            return;
+        completePanel.SetActive(true);
 
-        questCompleted = true;
-        bossDefeated = true;
-
-        Debug.Log("HOÀN THÀNH NHIỆM VỤ!");
-
-        if (completePanel != null)
-        {
-            completePanel.SetActive(true);
-
-            Invoke(
-                nameof(HideCompletePanel),
-                completeShowTime
-            );
-        }
-
-        OpenPortal();
+        Invoke(
+            nameof(HideCompletePanel),
+            completeShowTime
+        );
     }
+
+    OpenPortal();
+}
 
 
     // =====================================================
@@ -380,4 +405,12 @@ private void UnlockRestrictedArea()
     {
         return battleStarted;
     }
+    //kiểm tra portal unlock
+    private void CheckPortalUnlock()
+{
+    if (wavesCompleted && currentFlower >= targetFlower)
+    {
+        CompleteQuest();
+    }
+}
 }
