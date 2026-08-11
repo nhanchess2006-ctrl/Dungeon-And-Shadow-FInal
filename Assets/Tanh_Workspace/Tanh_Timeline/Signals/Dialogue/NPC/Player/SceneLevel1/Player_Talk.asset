@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Alice
   characterAvatar: {fileID: -1920238846, guid: e5c8f84f2dd732f448fcc1d6081481eb, type: 3}
-  combinedLines: '"Who are you???"'
+  combinedLines: '"Who''s there?! Stay back!"'

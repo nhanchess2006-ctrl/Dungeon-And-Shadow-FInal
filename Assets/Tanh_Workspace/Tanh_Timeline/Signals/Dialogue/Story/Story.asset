@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   characterAvatar: {fileID: 0}
-  combinedLines: Cold winds kept blowing through the dark and ruined castle. In the
-    sky, a rain of blood was falling non-stop. Dead bodies lay everywhere in the
-    city. Some were children who died of hunger in their mothers' arms. | Some bodies
-    were piled up under heavy rocks, while others died from exhaustion. But in that
-    dark night, a 13-year-old child was trying to gather the body dust into a pile
-    to burn it.
+  combinedLines: Cold winds howl through the shattered ruins of the castle. Above,
+    a relentless rain of blood stains the sky. The city is a graveyard. Mothers freeze
+    in death, clutching starved infants. | others lie crushed under fallen stone,
+    or collapsed from sheer exhaustion. | Yet, amid the pitch-black night, a thirteen-year-old
+    girl kneels in the dirt. With trembling hands, she gathers the ash and remains
+    of the dead, lighting a final, defiant pyre.

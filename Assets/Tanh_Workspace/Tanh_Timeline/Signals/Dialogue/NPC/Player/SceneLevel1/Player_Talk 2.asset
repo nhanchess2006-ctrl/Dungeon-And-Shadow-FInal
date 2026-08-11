@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Alice
   characterAvatar: {fileID: -1920238846, guid: e5c8f84f2dd732f448fcc1d6081481eb, type: 3}
-  combinedLines: '"Just picking flowers?"'
+  combinedLines: '"We''re risking our lives in this godforsaken place... just to
+    pick some flowers, Commander?"'
