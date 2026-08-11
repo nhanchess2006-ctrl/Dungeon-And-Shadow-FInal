@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39288e01ea0bd25409f99304100dbd65, type: 3}
   m_Name: LoiDoiTruong_Talk 2
   m_EditorClassIdentifier: 
-  characterName: Captian Light
+  characterName: Captain Light
   characterAvatar: {fileID: 4723107735738678597, guid: 6ca7701dd33647344a233657ae4c8424, type: 3}
   combinedLines: '"This is Sand Eagle Arena, a place where mercenaries gather and
     live." | "Therefore, it doesn''t welcome useless people. You need to take a test!"'

@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   characterAvatar: {fileID: 0}
-  combinedLines: Behind him, the shadow of a man was watching the boy closely from
-    beginning to end. In this ruined world where piles of dead bodies were ignored,
-    the girl's presence looked like a small spark of warmth in the eyes of the man,
-    sneaking through a bloody world. | Without thinking, the man walked closer to
-    the girl.
+  combinedLines: From the shadows, a man watches her. Silent. Unmoving. | In a broken
+    world where the dead are left to rot, this fragile girl is a flickering spark
+    of warmth. Seeing the raw vengeance burning in her eyes, compassion stirs within
+    him. | The man steps out from the dark, drawing closer.

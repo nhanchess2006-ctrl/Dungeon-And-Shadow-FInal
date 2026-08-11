@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   characterAvatar: {fileID: 0}
-  combinedLines: After proving his ability, Alice went back to Captain Light's house
-    with him. | This period of time was quite peaceful. They spent quiet days together
-    like a family and did basic mercenary missions together.
+  combinedLines: "After surviving the trial of the colosseum, Alice was taken in
+    by Captain Light. | A brief period of peace followed; they lived like family,
+    taking on basic mercenary contracts just to get by. | But the Final Boss's shadow
+    cast wide over this world. Plague spread, and the survivors wept in agony. |
+    To save them, the two must venture into the Sylvan Shroud\u2014a cursed forest
+    now occupied by the Umbral Fiends."

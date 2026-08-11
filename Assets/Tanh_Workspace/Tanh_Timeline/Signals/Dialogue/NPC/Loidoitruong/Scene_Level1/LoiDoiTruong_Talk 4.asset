@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39288e01ea0bd25409f99304100dbd65, type: 3}
   m_Name: LoiDoiTruong_Talk 4
   m_EditorClassIdentifier: 
-  characterName: Captian Light
+  characterName: Captain Light
   characterAvatar: {fileID: 4723107735738678597, guid: 6ca7701dd33647344a233657ae4c8424, type: 3}
-  combinedLines: '"Not only that, but there is also a legend. If you hear strange
-    sounds in the forbidden forest, run away fast and don''t look back. It means
-    those creatures are coming!" | "The Night Parade of a Hundred Demons!!!"'
+  combinedLines: "\"Far worse than dangerous. Remember this: if you hear disembodied
+    whispers echoing through the mist, run as fast as you can, and DO NOT look back.\"
+    | \"It means the Umbral Fiends have caught our scent. Their shadow strikes will
+    wither your soul before you even realize you've been hit.\" | \"Let\u2019s move.
+    We have people to save.\""
