@@ -65,6 +65,7 @@ public class ChestQuestManager : MonoBehaviour
     public int CurrentChest => currentChest;
 
     public int TargetChest => targetChest;
+    public bool IsQuestCompleted => questCompleted;
 
 
     // =========================================================
