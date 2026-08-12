@@ -88,7 +88,7 @@ public class NPCTrigger : MonoBehaviour
     [Header("Timing")]
     [SerializeField] private float npcAppearDelay = 0.5f;
 
-    [SerializeField] private float dialogueDuration = 5f;
+    [SerializeField] private float dialogueDuration = 3f;
 
 
     // =========================================================
@@ -566,7 +566,7 @@ private IEnumerator SpawnNPCAfterDelay(GameObject player)
     // DELAY SAU KHI ĐỦ 5 BÔNG
     // =========================================
 
-    yield return new WaitForSeconds(1.5f);
+    yield return new WaitForSeconds(0.5f);
 
 
     // =========================================

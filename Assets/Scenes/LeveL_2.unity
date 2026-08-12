@@ -1595,7 +1595,8 @@ MonoBehaviour:
   secondDialogue: This place still holds many mysteries, so explore it for yourself
     before you leave
   completedDialogue1: You are amazing.
-  completedDialogue2: Now, let's continue the adventure with the main quest.
+  completedDialogue2: "The barrier at the far end of the stronghold has opened now\u2014let's
+    go."
   npcAppearDelay: 2
   dialogueDuration: 5
   chestQuestManager: {fileID: 976259020}
@@ -62809,7 +62810,7 @@ MonoBehaviour:
   completeTextDuration: 2
   fadeOutDuration: 0.4
   npcTrigger: {fileID: 540205632}
-  npcSpawnDelay: 0.5
+  npcSpawnDelay: 0.2
 --- !u!4 &976259021
 Transform:
   m_ObjectHideFlags: 0
@@ -63662,6 +63663,99 @@ MonoBehaviour:
   dropData: {fileID: 11400000, guid: 53202fea4f3bc0a40829e9c2d34d4477, type: 2}
   maxRarityAmount: 1600
   maxItemsToDrop: 3
+--- !u!1 &1358988291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1358988293}
+  - component: {fileID: 1358988292}
+  - component: {fileID: 1358988294}
+  m_Layer: 0
+  m_Name: QuestBarrier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1358988292
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358988291}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.07959747, y: -0.23879623}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.84080505, y: 4.077821}
+  m_EdgeRadius: 0
+--- !u!4 &1358988293
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358988291}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 74.72, y: -2.69, z: 0.36633128}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1358988294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358988291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e1530f6e190b646b90e5d2026b486a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barrierCollider: {fileID: 1358988292}
+  barrierVisual: {fileID: 0}
 --- !u!1 &1401896352
 GameObject:
   m_ObjectHideFlags: 0
@@ -65712,3 +65806,4 @@ SceneRoots:
   - {fileID: 1280059381}
   - {fileID: 553087483}
   - {fileID: 976259021}
+  - {fileID: 1358988293}
