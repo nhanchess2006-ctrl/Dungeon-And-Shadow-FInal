@@ -281,7 +281,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2015753665340185999, guid: 43d2b18616153d4449e0d983e955a91a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.14
+      value: -2.64
       objectReference: {fileID: 0}
     - target: {fileID: 2015753665340185999, guid: 43d2b18616153d4449e0d983e955a91a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1415,6 +1415,11 @@ PrefabInstance:
       addedObject: {fileID: 740260634}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43d2b18616153d4449e0d983e955a91a, type: 3}
+--- !u!1 &210772423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5928106606898212179, guid: 43d2b18616153d4449e0d983e955a91a, type: 3}
+  m_PrefabInstance: {fileID: 210772422}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &231688006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2778,7 +2783,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.254391, y: -0.29703856, z: 21.692577}
+  m_LocalPosition: {x: -8.06439, y: -0.29703856, z: 21.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2999,7 +3004,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.225, y: 0.05}
-  m_SizeDelta: {x: 53.79, y: 10.6}
+  m_SizeDelta: {x: 56.6, y: 18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &730681019
 MonoBehaviour:
@@ -3235,14 +3240,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 2100868156}
-  activateNPCOnTrigger: 1
+  triggerMode: 1
   hideNPCAfterDialogue: 1
   dialogueUI: {fileID: 119448415}
   npcName: LOI DOI TRUONG
-  dialogueText: This is the area where explorers prepare their gear before setting
-    out
+  firstDialogue: This is the place where explorers stop before setting out to explore.
+  secondDialogue: Approach the merchants and press F to start trading.
+  completedDialogue1: "T\u1ED1t l\u1EAFm! B\u1EA1n \u0111\xE3 thu th\u1EADp \u0111\u1EE7
+    5 chi\u1EBFc r\u01B0\u01A1ng."
+  completedDialogue2: "B\xE2y gi\u1EDD h\xE3y ti\u1EBFp t\u1EE5c \u0111i v\u1EC1
+    ph\xEDa tr\u01B0\u1EDBc."
   npcAppearDelay: 0.5
   dialogueDuration: 5
+  chestQuestManager: {fileID: 0}
+  questLightController: {fileID: 0}
 --- !u!61 &811138410
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3298,7 +3309,7 @@ Transform:
   m_GameObject: {fileID: 811138408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.77, y: -1.08, z: 0.18108678}
+  m_LocalPosition: {x: -5.86, y: -1.08, z: 0.18108678}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16839,7 +16850,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.225, y: 0.05}
-  m_SizeDelta: {x: 53.79, y: 10.6}
+  m_SizeDelta: {x: 53.79, y: 15.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838009267
 MonoBehaviour:
@@ -35159,7 +35170,7 @@ Transform:
   m_GameObject: {fileID: 1454656417}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.254391, y: -0.29703856, z: 21.692577}
+  m_LocalPosition: {x: -8.06439, y: -0.29703856, z: 21.692577}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35289,14 +35300,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f15a32cf428534eae175bbcb1a9a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 2100868156}
-  activateNPCOnTrigger: 0
-  hideNPCAfterDialogue: 0
+  npc: {fileID: 210772423}
+  triggerMode: 0
+  hideNPCAfterDialogue: 1
   dialogueUI: {fileID: 740260635}
   npcName: LOI DOI TRUONG
-  dialogueText: 'GO! GO! '
+  firstDialogue: if you are ready
+  secondDialogue: Now, follow me.
+  completedDialogue1: "T\u1ED1t l\u1EAFm! B\u1EA1n \u0111\xE3 thu th\u1EADp \u0111\u1EE7
+    5 chi\u1EBFc r\u01B0\u01A1ng."
+  completedDialogue2: "B\xE2y gi\u1EDD h\xE3y ti\u1EBFp t\u1EE5c \u0111i v\u1EC1
+    ph\xEDa tr\u01B0\u1EDBc."
   npcAppearDelay: 0.5
-  dialogueDuration: 5
+  dialogueDuration: 3
+  chestQuestManager: {fileID: 0}
+  questLightController: {fileID: 0}
 --- !u!61 &1465472285
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -36322,8 +36340,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1831899741
-  m_SortingLayer: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: -1
   m_Sprite: {fileID: 1221051087, guid: d7db883087703b74ca3f2b5f028072cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -36888,6 +36906,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2838841016935325125, guid: a3dbcd56beef1994ba9816fef600e534, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322669154848002024, guid: a3dbcd56beef1994ba9816fef600e534, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322669154848002024, guid: a3dbcd56beef1994ba9816fef600e534, type: 3}
+      propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -37604,7 +37630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4959368856779774103, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.23
+      value: -5.04
       objectReference: {fileID: 0}
     - target: {fileID: 4959368856779774103, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
       propertyPath: m_LocalPosition.y
