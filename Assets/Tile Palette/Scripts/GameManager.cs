@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour, ISaveable
     public void ContinuePlay()
     {
         
-            ChangeScene("Level1_Đấu_Trường", RespawnType.NonSpecific);
+            ChangeScene("Tanh_Level1", RespawnType.NonSpecific);
             
      
     }

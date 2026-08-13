@@ -88,7 +88,7 @@ public class NPCTrigger : MonoBehaviour
     [Header("Timing")]
     [SerializeField] private float npcAppearDelay = 0.5f;
 
-    [SerializeField] private float dialogueDuration = 3f;
+    [SerializeField] private float dialogueDuration = 6f;
 
 
     // =========================================================
