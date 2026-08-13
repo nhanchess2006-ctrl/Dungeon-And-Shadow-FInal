@@ -31,10 +31,22 @@ public class Enemy_Health : Entity_Health
 
     protected override void Die()
     {
+     // =====================================================
+     // CỘNG EXP TRƯỚC KHI QUÁI BỊ XỬ LÝ/XÓA
+     // =====================================================
+
+        EnemyExpReward expReward =
+        GetComponent<EnemyExpReward>();
+
+      if (expReward != null)
+      {
+        expReward.GiveExpReward();
+      }
         base.Die();
-     if (QuestManager.Instance != null)
-    {
+        
+      if (QuestManager.Instance != null)
+      {
         QuestManager.Instance.NotifyEnemyDeath(this);
-    }
+      }
     }
 }
