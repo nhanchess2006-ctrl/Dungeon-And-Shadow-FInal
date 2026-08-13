@@ -117,7 +117,7 @@ public class UI_FinishScreen : MonoBehaviour
         // Cập nhật biến bossDefeated
         if (QuestManager.Instance != null)
         {
-            QuestManager.Instance.bossDefeated = true;
+            QuestManager.Instance. wavesCompleted = true;
             Debug.Log("📜 [Quest System] Đã tự động ghi nhận Boss bị tiêu diệt vào hệ thống!");
         }
 
