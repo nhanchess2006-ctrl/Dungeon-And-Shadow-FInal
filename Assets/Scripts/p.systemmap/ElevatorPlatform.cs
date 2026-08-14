@@ -3,43 +3,69 @@ using UnityEngine;
 public class ElevatorPlatform : MonoBehaviour
 {
     [Header("Move Settings")]
+    [SerializeField] private Transform startPoint;
     [SerializeField] private Transform endPoint;
     [SerializeField] private float speed = 2f;
-
-    private Vector3 startPoint;
-    private Vector3 targetPoint;
+    [SerializeField] private float waitTime = 3f;
 
     private bool isActivated = false;
-    private bool movingToEnd = true;
+    private bool isReturning = false;
+    private float waitTimer = 0f;
 
-    private void Start()
+    void Start()
     {
-        // Lưu vị trí ban đầu của platform
-        startPoint = transform.position;
-
-        // Ban đầu đi tới endPoint
-        targetPoint = endPoint.position;
+        // Đảm bảo platform bắt đầu đúng vị trí startPoint
+        if (startPoint != null)
+        {
+            transform.position = startPoint.position;
+        }
     }
 
-    private void Update()
+    void Update()
     {
         if (!isActivated)
             return;
 
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            targetPoint,
-            speed * Time.deltaTime
-        );
-
-        // Khi tới điểm đích thì đổi hướng
-        if (Vector3.Distance(transform.position, targetPoint) < 0.01f)
+        // Đang đi lên
+        if (!isReturning)
         {
-            movingToEnd = !movingToEnd;
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                endPoint.position,
+                speed * Time.deltaTime
+            );
 
-            targetPoint = movingToEnd
-                ? endPoint.position
-                : startPoint;
+            // Đã tới endPoint
+            if (Vector2.Distance(transform.position, endPoint.position) < 0.01f)
+            {
+                waitTimer += Time.deltaTime;
+
+                // Đợi 3 giây
+                if (waitTimer >= waitTime)
+                {
+                    isReturning = true;
+                    waitTimer = 0f;
+                }
+            }
+        }
+        // Đang quay về startPoint
+        else
+        {
+            transform.position = Vector2.MoveTowards(
+                transform.position,
+                startPoint.position,
+                speed * Time.deltaTime
+            );
+
+            // Đã về startPoint
+            if (Vector2.Distance(transform.position, startPoint.position) < 0.01f)
+            {
+                transform.position = startPoint.position;
+
+                isActivated = false;
+                isReturning = false;
+                waitTimer = 0f;
+            }
         }
     }
 
