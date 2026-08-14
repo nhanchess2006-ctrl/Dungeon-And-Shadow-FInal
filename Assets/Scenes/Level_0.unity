@@ -3477,6 +3477,13 @@ MonoBehaviour:
     ph\xEDa tr\u01B0\u1EDBc."
   npcAppearDelay: 0.5
   dialogueDuration: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  npcSpawnDistance: 1.2
+  groundCheckHeight: 10
+  groundCheckDistance: 20
+  groundOffset: 0
   chestQuestManager: {fileID: 0}
   questLightController: {fileID: 0}
 --- !u!61 &811138410
@@ -34330,7 +34337,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1017451840}
   - component: {fileID: 1017451839}
-  - component: {fileID: 1017451841}
   m_Layer: 0
   m_Name: ManegerAVATA
   m_TagString: Untagged
@@ -34368,18 +34374,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1017451841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1017451838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 747fed0c354c7024890b23ae2a878905, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1021352442
 GameObject:
   m_ObjectHideFlags: 0
@@ -35807,6 +35801,13 @@ MonoBehaviour:
     ph\xEDa tr\u01B0\u1EDBc."
   npcAppearDelay: 0.5
   dialogueDuration: 3
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  npcSpawnDistance: 1.2
+  groundCheckHeight: 10
+  groundCheckDistance: 20
+  groundOffset: 0
   chestQuestManager: {fileID: 0}
   questLightController: {fileID: 0}
 --- !u!61 &1465472285

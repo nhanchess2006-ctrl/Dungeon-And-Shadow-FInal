@@ -323,6 +323,7 @@ public class ChestQuestManager : MonoBehaviour
         );
 
 
+
         // -----------------------------------------------------
         // ẨN UI TIẾN ĐỘ
         // -----------------------------------------------------
@@ -368,14 +369,14 @@ public class ChestQuestManager : MonoBehaviour
     // =========================================================
 
     private IEnumerator QuestCompleteSequence(
-        GameObject player
-    )
+    GameObject player
+)
     {
         // =====================================================
         // RESET UI
         // =====================================================
 
-        // Hiện Complete Panel.
+        // Hiện Complete Panel
         if (questCompletePanel != null)
         {
             questCompletePanel.SetActive(true);
@@ -383,7 +384,6 @@ public class ChestQuestManager : MonoBehaviour
 
 
         // Reset alpha về 0
-        // để bắt đầu hiệu ứng Fade In.
         if (completeCanvasGroup != null)
         {
             completeCanvasGroup.alpha = 0f;
@@ -391,7 +391,6 @@ public class ChestQuestManager : MonoBehaviour
 
 
         // Reset Scale về 0
-        // để bắt đầu hiệu ứng Pop.
         if (completeTitle != null)
         {
             completeTitle.localScale =
@@ -455,7 +454,7 @@ public class ChestQuestManager : MonoBehaviour
         }
 
 
-        // Đảm bảo Scale cuối cùng = 1.
+        // Đảm bảo Scale cuối cùng = 1
         if (completeTitle != null)
         {
             completeTitle.localScale =
@@ -516,7 +515,6 @@ public class ChestQuestManager : MonoBehaviour
 
         if (questRewardController != null)
         {
-            // Hiển thị Reward Panel.
             questRewardController.ShowReward();
 
             Debug.Log(
@@ -525,52 +523,41 @@ public class ChestQuestManager : MonoBehaviour
             );
 
 
-            // -------------------------------------------------
-            // CHỜ NGƯỜI CHƠI BẤM XÁC NHẬN
-            // -------------------------------------------------
-            //
-            // yield return sẽ tạm dừng Coroutine này.
-            //
-            // NPC sẽ KHÔNG xuất hiện ngay.
-            //
-            // Coroutine chỉ tiếp tục khi
-            // QuestRewardController gọi:
-            //
-            // OnRewardClaimed
-            //
+            // =================================================
+            // CHỜ NGƯỜI CHƠI NHẬN REWARD
+            // =================================================
 
             bool rewardReceived = false;
 
 
-            // Hàm được gọi khi người chơi
-            // đã nhận phần thưởng.
             void OnRewardReceived()
             {
                 rewardReceived = true;
             }
 
 
-            // Đăng ký Event.
+            // Đăng ký Event
             questRewardController.OnRewardClaimed
                 += OnRewardReceived;
 
 
-            // Chờ người chơi bấm Confirm.
+            // Chờ người chơi bấm Confirm
             yield return new WaitUntil(
                 () => rewardReceived
             );
-            Debug.Log("========== REWARD ĐÃ ĐƯỢC NHẬN ==========");
+
+
+            Debug.Log(
+                "========== REWARD ĐÃ ĐƯỢC NHẬN =========="
+            );
 
 
             // Hủy đăng ký Event
-            // sau khi đã nhận thưởng.
             questRewardController.OnRewardClaimed
                 -= OnRewardReceived;
         }
         else
         {
-            // Nếu chưa gán Reward Controller,
-            // vẫn tiếp tục NPC để game không bị kẹt.
             Debug.LogWarning(
                 "ChestQuestManager: "
                 + "QuestRewardController chưa được gán!"
@@ -579,32 +566,37 @@ public class ChestQuestManager : MonoBehaviour
 
 
         // =====================================================
-        // DELAY TRƯỚC NPC
+        // KẾT THÚC
+        // =====================================================
+        //
+        // QUAN TRỌNG:
+        //
+        // KHÔNG SPAWN NPC Ở ĐÂY.
+        //
+        // NPC chỉ được Spawn khi Player
+        // nhặt Boss Map.
+        //
+        // Luồng mới:
+        //
+        // 5/5 Hoa
+        //      ↓
+        // Boss Map xuất hiện
+        //      ↓
+        // Player nhặt Boss Map
+        //      ↓
+        // BossMapPickup
+        //      ↓
+        // BossRoomSequence
+        //      ↓
+        // NPC xuất hiện
+        //
         // =====================================================
 
-        yield return new WaitForSeconds(
-            npcSpawnDelay
+        Debug.Log(
+            "ChestQuestManager: "
+            + "Quest Reward đã hoàn tất. "
+            + "Chờ Player nhặt Boss Map."
         );
-
-
-        // =====================================================
-        // NPC XUẤT HIỆN
-        // =====================================================
-
-        if (npcTrigger != null)
-        {
-            npcTrigger.SpawnNPCInFrontOfPlayer(
-                player
-            );
-            Debug.Log("========== ĐANG GỌI SPAWN NPC ==========");
-        }
-        else
-        {
-            Debug.LogError(
-                "ChestQuestManager: "
-                + "NPCTrigger chưa được gán!"
-            );
-        }
     }
 
 
@@ -638,5 +630,5 @@ public class ChestQuestManager : MonoBehaviour
                 2f
             );
     }
-    
+
 }

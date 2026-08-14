@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class NPCTrigger : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class NPCTrigger : MonoBehaviour
     // =========================================================
     // NPC
     // =========================================================
+
+    public event Action OnBossDialogueFinished;
 
     [Header("NPC")]
 
@@ -79,7 +82,7 @@ public class NPCTrigger : MonoBehaviour
     [TextArea(2, 5)]
     [SerializeField]
     private string completedDialogue1 =
-        "Tốt lắm! Bạn đã thu thập đủ 5 chiếc rương.";
+        "Tốt lắm! Bạn đã hoàn thành nhiệm vụ.";
 
 
     [TextArea(2, 5)]
@@ -94,53 +97,49 @@ public class NPCTrigger : MonoBehaviour
 
     [Header("Timing")]
 
-    // Thời gian chờ trước khi NPC xuất hiện.
     [SerializeField]
     private float npcAppearDelay = 0.5f;
 
-
-    // Thời gian hiển thị mỗi câu thoại.
     [SerializeField]
     private float dialogueDuration = 3f;
 
 
     // =========================================================
-    // NPC GROUND SPAWN
+    // QUEST NPC GROUND SPAWN
     // =========================================================
-
-    [Header("NPC Ground Spawn")]
-
-    // Layer của mặt đất.
     //
-    // Ví dụ:
-    // Ground
-    // Platform
+    // QUAN TRỌNG:
+    //
+    // Đây là cơ chế RIÊNG cho NPC xuất hiện sau Quest.
+    //
+    // Các NPC cũ không bị ảnh hưởng.
+    //
+    // false = dùng vị trí cũ của NPC.
+    // true  = tìm mặt đất bằng Raycast.
+    //
+
+    [Header("Quest NPC Ground Spawn")]
+
+    [SerializeField]
+    private bool useGroundSpawnForQuestNPC = false;
+
+
     [SerializeField]
     private LayerMask groundLayer;
 
 
-    // Khoảng cách NPC xuất hiện
-    // so với Player.
-    //
-    // Có thể chỉnh trực tiếp trong Inspector.
     [SerializeField]
     private float npcSpawnDistance = 1.2f;
 
 
-    // Raycast bắt đầu từ vị trí cao hơn Player.
     [SerializeField]
     private float groundCheckHeight = 10f;
 
 
-    // Khoảng cách Raycast bắn xuống.
     [SerializeField]
     private float groundCheckDistance = 20f;
 
 
-    // Khoảng cách nâng NPC lên khỏi mặt đất.
-    //
-    // Nếu chân NPC bị chui xuống đất,
-    // hãy tăng giá trị này.
     [SerializeField]
     private float groundOffset = 0f;
 
@@ -200,7 +199,10 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // NPC đã có sẵn trong Scene.
+        // =====================================================
+        // EXISTING NPC
+        // =====================================================
+
         if (
             triggerMode ==
             NPCTriggerMode.ExistingNPC
@@ -210,7 +212,10 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // NPC chỉ xuất hiện khi Player chạm Trigger.
+        // =====================================================
+        // SPAWN ON TRIGGER
+        // =====================================================
+
         else if (
             triggerMode ==
             NPCTriggerMode.SpawnOnTrigger
@@ -220,7 +225,10 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // NPC Quest ban đầu bị ẩn.
+        // =====================================================
+        // QUEST NPC
+        // =====================================================
+
         else if (
             triggerMode ==
             NPCTriggerMode.QuestNPC
@@ -244,7 +252,7 @@ public class NPCTrigger : MonoBehaviour
             return;
 
 
-        // Chỉ Player mới kích hoạt.
+        // Chỉ Player.
         if (!other.CompareTag("Player"))
             return;
 
@@ -268,12 +276,13 @@ public class NPCTrigger : MonoBehaviour
         GameObject player
     )
     {
-        // =========================================
+        // =====================================================
         // 1. KHÓA PLAYER
-        // =========================================
+        // =====================================================
 
         PlayerDialogueLock playerLock =
             player.GetComponent<PlayerDialogueLock>();
+
 
         if (playerLock != null)
         {
@@ -285,9 +294,9 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
+        // =====================================================
         // 2. NPC SPAWN
-        // =========================================
+        // =====================================================
 
         if (
             triggerMode ==
@@ -309,9 +318,9 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
+        // =====================================================
         // 3. LƯU VỊ TRÍ NPC
-        // =========================================
+        // =====================================================
 
         Vector3 npcPosition =
             npc != null
@@ -319,25 +328,24 @@ public class NPCTrigger : MonoBehaviour
             : transform.position;
 
 
-        // =========================================
+        // =====================================================
         // 4. FIRST DIALOGUE
-        // =========================================
+        // =====================================================
 
         yield return StartCoroutine(
             PlayFirstDialogue()
         );
 
 
-        // =========================================
+        // =====================================================
         // 5. QUEST NPC
-        // =========================================
+        // =====================================================
 
         if (
             triggerMode ==
             NPCTriggerMode.QuestNPC
         )
         {
-            // NPC biến mất nếu được bật.
             if (hideNPCAfterDialogue)
             {
                 if (npc != null)
@@ -347,13 +355,11 @@ public class NPCTrigger : MonoBehaviour
             }
 
 
-            // Bắt đầu Quest.
             StartChestQuest(
                 npcPosition
             );
 
 
-            // Mở khóa Player.
             if (playerLock != null)
             {
                 playerLock.UnlockPlayer();
@@ -365,9 +371,9 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
+        // =====================================================
         // 6. NORMAL NPC
-        // =========================================
+        // =====================================================
 
         else
         {
@@ -398,9 +404,9 @@ public class NPCTrigger : MonoBehaviour
 
     private IEnumerator PlayFirstDialogue()
     {
-        // -----------------------------------------
-        // CÂU THOẠI 1
-        // -----------------------------------------
+        // =====================================================
+        // CÂU 1
+        // =====================================================
 
         if (dialogueUI != null)
         {
@@ -416,9 +422,9 @@ public class NPCTrigger : MonoBehaviour
         );
 
 
-        // -----------------------------------------
-        // CÂU THOẠI 2
-        // -----------------------------------------
+        // =====================================================
+        // CÂU 2
+        // =====================================================
 
         if (dialogueUI != null)
         {
@@ -434,9 +440,9 @@ public class NPCTrigger : MonoBehaviour
         );
 
 
-        // -----------------------------------------
+        // =====================================================
         // ẨN DIALOGUE
-        // -----------------------------------------
+        // =====================================================
 
         if (dialogueUI != null)
         {
@@ -453,9 +459,9 @@ public class NPCTrigger : MonoBehaviour
         Vector3 npcPosition
     )
     {
-        // =========================================
+        // =====================================================
         // NPC HIDE
-        // =========================================
+        // =====================================================
 
         if (hideNPCAfterDialogue)
         {
@@ -466,9 +472,9 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
+        // =====================================================
         // LIGHT EFFECT
-        // =========================================
+        // =====================================================
 
         if (questLightController != null)
         {
@@ -486,9 +492,9 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
+        // =====================================================
         // START QUEST
-        // =========================================
+        // =====================================================
 
         if (chestQuestManager != null)
         {
@@ -510,7 +516,7 @@ public class NPCTrigger : MonoBehaviour
 
 
     // =========================================================
-    // CALLED WHEN CHESTS = 5
+    // START SECOND DIALOGUE
     // =========================================================
 
     public void StartSecondDialogue(
@@ -550,9 +556,9 @@ public class NPCTrigger : MonoBehaviour
         GameObject player
     )
     {
-        // =========================================
+        // =====================================================
         // KHÓA PLAYER
-        // =========================================
+        // =====================================================
 
         PlayerDialogueLock playerLock =
             player.GetComponent<PlayerDialogueLock>();
@@ -561,19 +567,23 @@ public class NPCTrigger : MonoBehaviour
         if (playerLock != null)
         {
             playerLock.LockPlayer();
+
+            Debug.Log(
+                "Player đã bị khóa để nói chuyện với NPC."
+            );
         }
 
 
-        // =========================================
-        // NPC QUAY MẶT VỀ PLAYER
-        // =========================================
+        // =====================================================
+        // NPC QUAY VỀ PLAYER
+        // =====================================================
 
         FacePlayer(player);
 
 
-        // =========================================
-        // CÂU THOẠI SAU KHI HOÀN THÀNH QUEST
-        // =========================================
+        // =====================================================
+        // CÂU 1
+        // =====================================================
 
         if (dialogueUI != null)
         {
@@ -589,9 +599,9 @@ public class NPCTrigger : MonoBehaviour
         );
 
 
-        // =========================================
-        // CÂU THOẠI THỨ 2
-        // =========================================
+        // =====================================================
+        // CÂU 2
+        // =====================================================
 
         if (dialogueUI != null)
         {
@@ -607,9 +617,9 @@ public class NPCTrigger : MonoBehaviour
         );
 
 
-        // =========================================
+        // =====================================================
         // ẨN DIALOGUE
-        // =========================================
+        // =====================================================
 
         if (dialogueUI != null)
         {
@@ -617,9 +627,9 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
+        // =====================================================
         // NPC BIẾN MẤT
-        // =========================================
+        // =====================================================
 
         if (hideNPCAfterDialogue)
         {
@@ -630,29 +640,70 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
+        // =====================================================
         // MỞ KHÓA PLAYER
-        // =========================================
+        // =====================================================
 
         if (playerLock != null)
         {
             playerLock.UnlockPlayer();
+
+            Debug.Log(
+                "NPC Dialogue đã kết thúc. Player được mở khóa."
+            );
         }
+
+
+        // =====================================================
+        // BÁO BOSS ROOM
+        // =====================================================
+
+        OnBossDialogueFinished?.Invoke();
+
+        Debug.Log(
+            "NPCTrigger: OnBossDialogueFinished đã được gọi."
+        );
     }
 
 
     // =========================================================
     // SPAWN NPC AFTER QUEST REWARD
     // =========================================================
+    //
+    // HÀM NÀY CHỈ ĐƯỢC GỌI KHI QUEST ĐÃ THỰC SỰ HOÀN THÀNH
+    // VÀ PLAYER ĐÃ NHẬN REWARD.
+    //
 
     public void SpawnNPCInFrontOfPlayer(
         GameObject player
     )
     {
-        // Tránh NPC xuất hiện nhiều lần.
-        if (secondDialogueStarted)
-            return;
+        Debug.Log(
+            "========== SpawnNPCInFrontOfPlayer ĐƯỢC GỌI =========="
+        );
 
+        Debug.Log(
+            "NPCTrigger: " + gameObject.name
+        );
+
+
+        // =====================================================
+        // TRÁNH SPAWN NHIỀU LẦN
+        // =====================================================
+
+        if (secondDialogueStarted)
+        {
+            Debug.Log(
+                "NPCTrigger: NPC sau Quest đã được xử lý."
+            );
+
+            return;
+        }
+
+
+        // =====================================================
+        // PLAYER
+        // =====================================================
 
         if (player == null)
         {
@@ -664,6 +715,10 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
+        // =====================================================
+        // NPC
+        // =====================================================
+
         if (npc == null)
         {
             Debug.LogError(
@@ -674,8 +729,10 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // Đánh dấu NPC sau Quest
-        // đã bắt đầu xuất hiện.
+        // =====================================================
+        // ĐÁNH DẤU ĐÃ BẮT ĐẦU
+        // =====================================================
+
         secondDialogueStarted = true;
 
 
@@ -688,7 +745,7 @@ public class NPCTrigger : MonoBehaviour
 
 
     // =========================================================
-    // FIND GROUND POSITION
+    // FIND GROUND
     // =========================================================
 
     private bool TryFindGround(
@@ -697,7 +754,6 @@ public class NPCTrigger : MonoBehaviour
         out RaycastHit2D groundHit
     )
     {
-        // Điểm bắt đầu Raycast.
         Vector2 rayStart =
             new Vector2(
                 targetX,
@@ -705,7 +761,6 @@ public class NPCTrigger : MonoBehaviour
             );
 
 
-        // Raycast từ trên xuống.
         groundHit =
             Physics2D.Raycast(
                 rayStart,
@@ -715,31 +770,30 @@ public class NPCTrigger : MonoBehaviour
             );
 
 
-        // Trả về true nếu tìm thấy Ground.
         return groundHit.collider != null;
     }
 
 
     // =========================================================
-    // SPAWN NPC ON GROUND
+    // SPAWN NPC AFTER QUEST
     // =========================================================
 
     private IEnumerator SpawnNPCAfterDelay(
         GameObject player
     )
     {
-        // =========================================
+        // =====================================================
         // DELAY
-        // =========================================
+        // =====================================================
 
         yield return new WaitForSeconds(
             npcAppearDelay
         );
 
 
-        // =========================================
-        // KIỂM TRA PLAYER
-        // =========================================
+        // =====================================================
+        // PLAYER
+        // =====================================================
 
         if (player == null)
         {
@@ -751,9 +805,9 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
-        // KIỂM TRA NPC
-        // =========================================
+        // =====================================================
+        // NPC
+        // =====================================================
 
         if (npc == null)
         {
@@ -765,9 +819,55 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
-        // XÁC ĐỊNH HƯỚNG PLAYER
-        // =========================================
+        // =====================================================
+        // CƠ CHẾ CŨ
+        // =====================================================
+        //
+        // Nếu useGroundSpawnForQuestNPC = FALSE
+        //
+        // NPC sẽ xuất hiện tại vị trí hiện tại của nó.
+        //
+        // Không Raycast.
+        // Không cần Ground Layer.
+        // Không ảnh hưởng Scene cũ.
+        //
+
+        if (!useGroundSpawnForQuestNPC)
+        {
+            Debug.Log(
+                "NPCTrigger: Đang dùng cơ chế Spawn cũ."
+            );
+
+
+            npc.SetActive(true);
+
+
+            FacePlayer(player);
+
+
+            StartCoroutine(
+                PlaySecondDialogue(
+                    player
+                )
+            );
+
+
+            yield break;
+        }
+
+
+        // =====================================================
+        // CƠ CHẾ GROUND SPAWN MỚI
+        // =====================================================
+
+        Debug.Log(
+            "NPCTrigger: Đang dùng Ground Spawn."
+        );
+
+
+        // =====================================================
+        // HƯỚNG PLAYER
+        // =====================================================
 
         float playerDirection =
             Mathf.Sign(
@@ -775,9 +875,17 @@ public class NPCTrigger : MonoBehaviour
             );
 
 
-        // =========================================
-        // THỬ SPAWN PHÍA TRƯỚC
-        // =========================================
+        if (Mathf.Approximately(
+            playerDirection,
+            0f))
+        {
+            playerDirection = 1f;
+        }
+
+
+        // =====================================================
+        // SPAWN PHÍA TRƯỚC
+        // =====================================================
 
         float targetX =
             player.transform.position.x
@@ -798,16 +906,16 @@ public class NPCTrigger : MonoBehaviour
             );
 
 
-        // =========================================
-        // NẾU PHÍA TRƯỚC KHÔNG CÓ ĐẤT
-        // THỬ PHÍA SAU PLAYER
-        // =========================================
+        // =====================================================
+        // THỬ PHÍA SAU
+        // =====================================================
 
         if (!foundGround)
         {
             Debug.Log(
-                "Không có mặt đất phía trước. "
-                + "Thử Spawn NPC phía sau Player."
+                "NPCTrigger: Không có Ground phía trước. "
+                +
+                "Thử phía sau Player."
             );
 
 
@@ -828,64 +936,83 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
+        // =====================================================
         // KHÔNG TÌM THẤY GROUND
-        // =========================================
+        // =====================================================
 
         if (!foundGround)
         {
             Debug.LogError(
-                "NPCTrigger: Không tìm thấy "
-                + "mặt đất để Spawn NPC!"
+                "NPCTrigger: Không tìm thấy mặt đất "
+                +
+                "để Spawn NPC!"
             );
+
+
+            // =================================================
+            // QUAN TRỌNG:
+            // Không để Quest bị kẹt hoàn toàn.
+            //
+            // Nếu Raycast thất bại,
+            // Spawn NPC tại vị trí hiện tại.
+            // =================================================
+
+            npc.SetActive(true);
+
+
+            FacePlayer(player);
+
+
+            StartCoroutine(
+                PlaySecondDialogue(
+                    player
+                )
+            );
+
 
             yield break;
         }
 
 
-        // =========================================
-        // TÍNH VỊ TRÍ NPC
-        // =========================================
+        // =====================================================
+        // TÍNH VỊ TRÍ SPAWN
+        // =====================================================
 
         Vector3 spawnPosition =
             new Vector3(
                 targetX,
-
-                // Lấy đúng vị trí mặt đất
-                // mà Raycast chạm vào.
                 groundHit.point.y
-                + groundOffset,
-
-                // Giữ nguyên Z của NPC.
+                +
+                groundOffset,
                 npc.transform.position.z
             );
 
 
-        // =========================================
-        // ĐẶT NPC XUỐNG MẶT ĐẤT
-        // =========================================
+        // =====================================================
+        // ĐẶT NPC
+        // =====================================================
 
         npc.transform.position =
             spawnPosition;
 
 
-        // =========================================
+        // =====================================================
         // HIỆN NPC
-        // =========================================
+        // =====================================================
 
         npc.SetActive(true);
 
 
-        // =========================================
-        // NPC QUAY MẶT VỀ PLAYER
-        // =========================================
+        // =====================================================
+        // QUAY VỀ PLAYER
+        // =====================================================
 
         FacePlayer(player);
 
 
-        // =========================================
-        // BẮT ĐẦU DIALOGUE HOÀN THÀNH QUEST
-        // =========================================
+        // =====================================================
+        // DIALOGUE
+        // =====================================================
 
         StartCoroutine(
             PlaySecondDialogue(
@@ -913,9 +1040,9 @@ public class NPCTrigger : MonoBehaviour
             npc.transform.position.x;
 
 
-        // =========================================
-        // PLAYER Ở BÊN PHẢI NPC
-        // =========================================
+        // =====================================================
+        // PLAYER BÊN PHẢI
+        // =====================================================
 
         if (direction > 0)
         {
@@ -932,9 +1059,9 @@ public class NPCTrigger : MonoBehaviour
         }
 
 
-        // =========================================
-        // PLAYER Ở BÊN TRÁI NPC
-        // =========================================
+        // =====================================================
+        // PLAYER BÊN TRÁI
+        // =====================================================
 
         else
         {
@@ -958,18 +1085,11 @@ public class NPCTrigger : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // Hiển thị vị trí Raycast trong Scene View.
-        //
-        // Chỉ để debug.
-        // Không ảnh hưởng gameplay.
-
-        if (Application.isPlaying == false)
+        if (!Application.isPlaying)
             return;
 
 
-        if (
-            Player.instance == null
-        )
+        if (Player.instance == null)
             return;
 
 
@@ -981,6 +1101,14 @@ public class NPCTrigger : MonoBehaviour
             Mathf.Sign(
                 Player.instance.transform.localScale.x
             );
+
+
+        if (Mathf.Approximately(
+            direction,
+            0f))
+        {
+            direction = 1f;
+        }
 
 
         float frontX =
@@ -995,7 +1123,8 @@ public class NPCTrigger : MonoBehaviour
             new Vector3(
                 frontX,
                 playerPosition.y
-                + groundCheckHeight,
+                +
+                groundCheckHeight,
                 0f
             );
 

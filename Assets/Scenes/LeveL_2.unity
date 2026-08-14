@@ -2024,6 +2024,7 @@ MonoBehaviour:
     go."
   npcAppearDelay: 2
   dialogueDuration: 5
+  useGroundSpawnForQuestNPC: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
