@@ -690,7 +690,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.051, y: 0.276}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1935, y: 1090}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &119448415
 MonoBehaviour:
@@ -3154,7 +3154,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.225, y: 0.05}
-  m_SizeDelta: {x: 56.6, y: 18}
+  m_SizeDelta: {x: 55.78, y: 24.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &730681019
 MonoBehaviour:
@@ -3232,7 +3232,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0.051, y: 0.276}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_SizeDelta: {x: 1928.9, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &740260635
 MonoBehaviour:
@@ -3477,6 +3477,7 @@ MonoBehaviour:
     ph\xEDa tr\u01B0\u1EDBc."
   npcAppearDelay: 0.5
   dialogueDuration: 5
+  useGroundSpawnForQuestNPC: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -17081,8 +17082,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.225, y: 0.05}
-  m_SizeDelta: {x: 53.79, y: 15.3}
+  m_AnchoredPosition: {x: -0.26, y: 0.05}
+  m_SizeDelta: {x: 56.8, y: 25.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838009267
 MonoBehaviour:
@@ -34458,8 +34459,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 4
+  m_fontSizeBase: 4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -34496,7 +34497,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 84.45359, y: 29.290861, z: 66.85065, w: 15.656432}
+  m_margin: {x: 84.45359, y: 26.972763, z: 66.85065, w: 12.565617}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -35801,6 +35802,7 @@ MonoBehaviour:
     ph\xEDa tr\u01B0\u1EDBc."
   npcAppearDelay: 0.5
   dialogueDuration: 3
+  useGroundSpawnForQuestNPC: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -36696,7 +36698,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: 6.8}
+  m_AnchoredPosition: {x: -9, y: 8.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699562679
@@ -36746,8 +36748,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 4
+  m_fontSizeBase: 4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -36784,7 +36786,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 84.45359, y: 29.290861, z: 66.85065, w: 15.656432}
+  m_margin: {x: 84.45359, y: 24.586609, z: 62.818436, w: 12.96828}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
