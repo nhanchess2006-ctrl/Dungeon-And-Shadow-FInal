@@ -12,7 +12,8 @@ public class ChestQuestManager : MonoBehaviour
 
     [Header("Quest")]
 
-    [SerializeField] private int targetChest = 5;
+    [SerializeField]
+    private int targetChest = 5;
 
     private int currentChest = 0;
 
@@ -26,9 +27,11 @@ public class ChestQuestManager : MonoBehaviour
 
     [Header("Quest UI")]
 
-    [SerializeField] private GameObject questPanel;
+    [SerializeField]
+    private GameObject questPanel;
 
-    [SerializeField] private TMP_Text questText;
+    [SerializeField]
+    private TMP_Text questText;
 
 
     // =========================================================
@@ -37,31 +40,42 @@ public class ChestQuestManager : MonoBehaviour
 
     [Header("Quest Complete UI")]
 
-    [SerializeField] private GameObject questCompletePanel;
+    [SerializeField]
+    private GameObject questCompletePanel;
 
-    [SerializeField] private CanvasGroup completeCanvasGroup;
+    [SerializeField]
+    private CanvasGroup completeCanvasGroup;
 
-    [SerializeField] private RectTransform completeTitle;
+    [SerializeField]
+    private RectTransform completeTitle;
 
-    [SerializeField] private float fadeInDuration = 0.3f;
+    [SerializeField]
+    private float fadeInDuration = 0.3f;
 
-    [SerializeField] private float scaleDuration = 0.45f;
+    [SerializeField]
+    private float scaleDuration = 0.45f;
 
-    [SerializeField] private float completeTextDuration = 1.5f;
+    [SerializeField]
+    private float completeTextDuration = 1.5f;
 
-    [SerializeField] private float fadeOutDuration = 0.4f;
+    [SerializeField]
+    private float fadeOutDuration = 0.4f;
 
 
     // =========================================================
-    // NPC
+    // NPC AFTER REWARD
     // =========================================================
 
-    [Header("NPC After Quest")]
+    [Header("NPC After Reward")]
 
-    [Tooltip("NPC GameObject sẽ xuất hiện sau khi người chơi Confirm Reward.")]
-    [SerializeField] private GameObject npcObject;
+    [Tooltip(
+        "NPCTrigger của NPC sẽ xuất hiện và nói thoại lần 2 sau khi Confirm Reward."
+    )]
+    [SerializeField]
+    private NPCTrigger npcTrigger;
 
-    [SerializeField] private float npcSpawnDelay = 1f;
+    [SerializeField]
+    private float npcSpawnDelay = 1f;
 
 
     // =========================================================
@@ -107,23 +121,29 @@ public class ChestQuestManager : MonoBehaviour
 
     private void Start()
     {
-        // Ẩn UI quest
+        // -----------------------------------------------------
+        // ẨN QUEST UI
+        // -----------------------------------------------------
+
         if (questPanel != null)
         {
             questPanel.SetActive(false);
         }
 
-        // Ẩn UI hoàn thành
+
+        // -----------------------------------------------------
+        // ẨN QUEST COMPLETE UI
+        // -----------------------------------------------------
+
         if (questCompletePanel != null)
         {
             questCompletePanel.SetActive(false);
         }
 
-        // NPC không xuất hiện từ đầu
-        if (npcObject != null)
-        {
-            npcObject.SetActive(false);
-        }
+
+        // -----------------------------------------------------
+        // UPDATE UI
+        // -----------------------------------------------------
 
         UpdateQuestUI();
     }
@@ -150,19 +170,33 @@ public class ChestQuestManager : MonoBehaviour
 
         questCompleted = false;
 
+
+        // -----------------------------------------------------
+        // HIỆN QUEST PANEL
+        // -----------------------------------------------------
+
         if (questPanel != null)
         {
             questPanel.SetActive(true);
         }
 
+
+        // -----------------------------------------------------
+        // UPDATE UI
+        // -----------------------------------------------------
+
         UpdateQuestUI();
+
 
         Debug.Log(
             "========================================"
         );
 
         Debug.Log(
-            "CHEST QUEST STARTED: 0/" + targetChest
+            "CHEST QUEST STARTED: "
+            + currentChest
+            + "/"
+            + targetChest
         );
 
         Debug.Log(
@@ -216,7 +250,11 @@ public class ChestQuestManager : MonoBehaviour
 
         currentChest++;
 
-        // Không cho vượt quá target
+
+        // -----------------------------------------------------
+        // KHÔNG CHO VƯỢT TARGET
+        // -----------------------------------------------------
+
         if (currentChest > targetChest)
         {
             currentChest = targetChest;
@@ -375,26 +413,32 @@ public class ChestQuestManager : MonoBehaviour
         // FADE IN
         // =====================================================
 
-        float timer = 0f;
-
-        while (timer < fadeInDuration)
+        if (fadeInDuration > 0f)
         {
-            timer += Time.deltaTime;
+            float timer = 0f;
 
-            float t =
-                timer / fadeInDuration;
-
-            if (completeCanvasGroup != null)
+            while (timer < fadeInDuration)
             {
-                completeCanvasGroup.alpha =
-                    Mathf.Lerp(
-                        0f,
-                        1f,
-                        t
-                    );
-            }
+                timer += Time.deltaTime;
 
-            yield return null;
+                float t =
+                    Mathf.Clamp01(
+                        timer / fadeInDuration
+                    );
+
+
+                if (completeCanvasGroup != null)
+                {
+                    completeCanvasGroup.alpha =
+                        Mathf.Lerp(
+                            0f,
+                            1f,
+                            t
+                        );
+                }
+
+                yield return null;
+            }
         }
 
 
@@ -402,25 +446,31 @@ public class ChestQuestManager : MonoBehaviour
         // TITLE POP
         // =====================================================
 
-        timer = 0f;
-
-        while (timer < scaleDuration)
+        if (scaleDuration > 0f)
         {
-            timer += Time.deltaTime;
+            float timer = 0f;
 
-            float t =
-                timer / scaleDuration;
-
-            float scale =
-                EaseOutBack(t);
-
-            if (completeTitle != null)
+            while (timer < scaleDuration)
             {
-                completeTitle.localScale =
-                    Vector3.one * scale;
-            }
+                timer += Time.deltaTime;
 
-            yield return null;
+                float t =
+                    Mathf.Clamp01(
+                        timer / scaleDuration
+                    );
+
+                float scale =
+                    EaseOutBack(t);
+
+
+                if (completeTitle != null)
+                {
+                    completeTitle.localScale =
+                        Vector3.one * scale;
+                }
+
+                yield return null;
+            }
         }
 
 
@@ -435,35 +485,44 @@ public class ChestQuestManager : MonoBehaviour
         // GIỮ CHỮ HOÀN THÀNH
         // =====================================================
 
-        yield return new WaitForSeconds(
-            completeTextDuration
-        );
+        if (completeTextDuration > 0f)
+        {
+            yield return new WaitForSeconds(
+                completeTextDuration
+            );
+        }
 
 
         // =====================================================
         // FADE OUT
         // =====================================================
 
-        timer = 0f;
-
-        while (timer < fadeOutDuration)
+        if (fadeOutDuration > 0f)
         {
-            timer += Time.deltaTime;
+            float timer = 0f;
 
-            float t =
-                timer / fadeOutDuration;
-
-            if (completeCanvasGroup != null)
+            while (timer < fadeOutDuration)
             {
-                completeCanvasGroup.alpha =
-                    Mathf.Lerp(
-                        1f,
-                        0f,
-                        t
-                    );
-            }
+                timer += Time.deltaTime;
 
-            yield return null;
+                float t =
+                    Mathf.Clamp01(
+                        timer / fadeOutDuration
+                    );
+
+
+                if (completeCanvasGroup != null)
+                {
+                    completeCanvasGroup.alpha =
+                        Mathf.Lerp(
+                            1f,
+                            0f,
+                            t
+                        );
+                }
+
+                yield return null;
+            }
         }
 
 
@@ -478,7 +537,7 @@ public class ChestQuestManager : MonoBehaviour
 
 
         // =====================================================
-        // HIỆN REWARD PANEL
+        // HIỆN REWARD
         // =====================================================
 
         if (questRewardController == null)
@@ -488,8 +547,12 @@ public class ChestQuestManager : MonoBehaviour
                 + "QuestRewardController chưa được gán!"
             );
 
-            // Nếu không có reward controller,
-            // vẫn cho NPC xuất hiện.
+
+            // -------------------------------------------------
+            // Không có Reward Controller
+            // Vẫn cho NPC xuất hiện.
+            // -------------------------------------------------
+
             yield return StartCoroutine(
                 SpawnNPCAfterReward()
             );
@@ -518,12 +581,16 @@ public class ChestQuestManager : MonoBehaviour
             rewardReceived = true;
 
             Debug.Log(
-                "ChestQuestManager: OnRewardClaimed được gọi!"
+                "ChestQuestManager: "
+                + "OnRewardClaimed được gọi!"
             );
         }
 
 
-        // Đăng ký Event
+        // -----------------------------------------------------
+        // ĐĂNG KÝ EVENT
+        // -----------------------------------------------------
+
         questRewardController.OnRewardClaimed
             += OnRewardReceived;
 
@@ -565,7 +632,7 @@ public class ChestQuestManager : MonoBehaviour
 
 
         // =====================================================
-        // SPAWN NPC
+        // SPAWN NPC + THOẠI LẦN 2
         // =====================================================
 
         yield return StartCoroutine(
@@ -577,18 +644,31 @@ public class ChestQuestManager : MonoBehaviour
     // =========================================================
     // SPAWN NPC AFTER REWARD
     // =========================================================
+    //
+    // KHÔNG TỰ SET ACTIVE NPC.
+    //
+    // NPCTrigger sẽ chịu trách nhiệm:
+    //
+    // 1. Spawn NPC
+    // 2. Đặt vị trí NPC
+    // 3. Face Player
+    // 4. Khóa Player
+    // 5. Chạy thoại lần 2
+    // 6. Mở khóa Player
+    //
+    // =========================================================
 
     private IEnumerator SpawnNPCAfterReward()
     {
         Debug.Log(
             "ChestQuestManager: "
-            + "Chuẩn bị spawn NPC..."
+            + "Chuẩn bị cho NPC xuất hiện sau Reward..."
         );
 
 
-        // -----------------------------------------------------
+        // =====================================================
         // DELAY
-        // -----------------------------------------------------
+        // =====================================================
 
         if (npcSpawnDelay > 0f)
         {
@@ -598,23 +678,42 @@ public class ChestQuestManager : MonoBehaviour
         }
 
 
-        // -----------------------------------------------------
-        // KIỂM TRA NPC
-        // -----------------------------------------------------
+        // =====================================================
+        // TÌM PLAYER
+        // =====================================================
 
-        if (npcObject == null)
+        GameObject player =
+            GameObject.FindGameObjectWithTag("Player");
+
+
+        if (player == null)
+        {
+            Debug.LogError(
+                "ChestQuestManager: Không tìm thấy Player!"
+            );
+
+            yield break;
+        }
+
+
+        // =====================================================
+        // KIỂM TRA NPC TRIGGER
+        // =====================================================
+
+        if (npcTrigger == null)
         {
             Debug.LogError(
                 "========================================"
             );
 
             Debug.LogError(
-                "ChestQuestManager: NPC OBJECT CHƯA ĐƯỢC GÁN!"
+                "ChestQuestManager: NPCTrigger "
+                + "chưa được gán!"
             );
 
             Debug.LogError(
-                "Hãy kéo NPC GameObject vào ô "
-                + "'Npc Object' trong Inspector."
+                "Hãy kéo GameObject chứa NPCTrigger "
+                + "vào ô NPC Trigger."
             );
 
             Debug.LogError(
@@ -625,11 +724,21 @@ public class ChestQuestManager : MonoBehaviour
         }
 
 
-        // -----------------------------------------------------
-        // SPAWN NPC
-        // -----------------------------------------------------
+        // =====================================================
+        // GỌI NPC TRIGGER
+        // =====================================================
+        //
+        // TUYỆT ĐỐI KHÔNG:
+        //
+        // npcObject.SetActive(true);
+        //
+        // Vì NPCTrigger đã tự quản lý NPC.
+        //
+        // =====================================================
 
-        npcObject.SetActive(true);
+        npcTrigger.SpawnNPCInFrontOfPlayer(
+            player
+        );
 
 
         Debug.Log(
@@ -637,7 +746,12 @@ public class ChestQuestManager : MonoBehaviour
         );
 
         Debug.Log(
-            "NPC ĐÃ XUẤT HIỆN!"
+            "ChestQuestManager: "
+            + "Đã gọi SpawnNPCInFrontOfPlayer()."
+        );
+
+        Debug.Log(
+            "NPC sẽ tự xuất hiện và chạy thoại lần 2."
         );
 
         Debug.Log(
@@ -649,22 +763,45 @@ public class ChestQuestManager : MonoBehaviour
     // =========================================================
     // MANUAL SPAWN NPC
     // =========================================================
+    //
+    // Có thể gọi từ Button/Event nếu cần.
+    //
+    // =========================================================
 
     public void SpawnNPC()
     {
-        if (npcObject == null)
+        GameObject player =
+            GameObject.FindGameObjectWithTag("Player");
+
+
+        if (player == null)
         {
             Debug.LogError(
-                "ChestQuestManager: NPC Object chưa được gán!"
+                "ChestQuestManager: Không tìm thấy Player!"
             );
 
             return;
         }
 
-        npcObject.SetActive(true);
+
+        if (npcTrigger == null)
+        {
+            Debug.LogError(
+                "ChestQuestManager: NPCTrigger chưa được gán!"
+            );
+
+            return;
+        }
+
+
+        npcTrigger.SpawnNPCInFrontOfPlayer(
+            player
+        );
+
 
         Debug.Log(
-            "ChestQuestManager: NPC đã được bật."
+            "ChestQuestManager: "
+            + "Đã yêu cầu NPC xuất hiện."
         );
     }
 
@@ -682,11 +819,19 @@ public class ChestQuestManager : MonoBehaviour
         questCompleted = false;
 
 
+        // -----------------------------------------------------
+        // QUEST PANEL
+        // -----------------------------------------------------
+
         if (questPanel != null)
         {
             questPanel.SetActive(false);
         }
 
+
+        // -----------------------------------------------------
+        // COMPLETE PANEL
+        // -----------------------------------------------------
 
         if (questCompletePanel != null)
         {
@@ -694,11 +839,25 @@ public class ChestQuestManager : MonoBehaviour
         }
 
 
-        if (npcObject != null)
+        // -----------------------------------------------------
+        // RESET COMPLETE UI
+        // -----------------------------------------------------
+
+        if (completeCanvasGroup != null)
         {
-            npcObject.SetActive(false);
+            completeCanvasGroup.alpha = 0f;
         }
 
+
+        if (completeTitle != null)
+        {
+            completeTitle.localScale = Vector3.zero;
+        }
+
+
+        // -----------------------------------------------------
+        // UPDATE UI
+        // -----------------------------------------------------
 
         UpdateQuestUI();
 
