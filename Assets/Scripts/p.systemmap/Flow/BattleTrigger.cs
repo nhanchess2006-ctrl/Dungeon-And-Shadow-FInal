@@ -2,37 +2,43 @@ using UnityEngine;
 
 public class BattleTrigger : MonoBehaviour
 {
-    private bool triggered = false;
+    private bool hasTriggered = false;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(
-            "BattleTrigger nhận va chạm với: " +
-            other.name +
-            " | Tag: " +
-            other.tag
-        );
-
-        if (triggered)
+        // Không phải Player thì bỏ qua ngay.
+        if (!other.CompareTag("Player"))
             return;
 
-        if (!other.CompareTag("Player"))
+        Debug.Log(
+            "BattleTrigger nhận Player."
+        );
+
+        // Đã kích hoạt rồi thì không kích hoạt lại.
+        if (hasTriggered)
         {
-            Debug.Log("Đối tượng chạm Trigger không phải Player!");
+            Debug.Log(
+                "BattleTrigger: Đã kích hoạt trước đó, bỏ qua."
+            );
+
             return;
         }
 
-        triggered = true;
+        // Khóa ngay lập tức.
+        hasTriggered = true;
 
-        Debug.Log("========== PLAYER ĐÃ CHẠM BATTLE TRIGGER ==========");
+        Debug.Log(
+            "========== BATTLE TRIGGER ACTIVATED =========="
+        );
 
         if (QuestManager.Instance == null)
         {
-            Debug.LogError("BattleTrigger: QuestManager.Instance đang NULL!");
+            Debug.LogError(
+                "BattleTrigger: Không tìm thấy QuestManager!"
+            );
+
             return;
         }
-
-        Debug.Log("Đã tìm thấy QuestManager!");
 
         QuestManager.Instance.StartBattleFromTrigger();
     }

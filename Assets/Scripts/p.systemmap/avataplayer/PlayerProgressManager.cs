@@ -74,7 +74,6 @@ public class PlayerProgressManager : MonoBehaviour
         }
     }
 
-
     /// <summary>
     /// Hàm dùng để cộng EXP cho người chơi.
     /// Ví dụ:
