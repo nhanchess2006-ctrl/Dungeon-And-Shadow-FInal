@@ -63432,7 +63432,7 @@ MonoBehaviour:
   scaleDuration: 0.45
   completeTextDuration: 2
   fadeOutDuration: 0.4
-  npcObject: {fileID: 0}
+  npcTrigger: {fileID: 540205632}
   npcSpawnDelay: 0.2
   questRewardController: {fileID: 976259022}
 --- !u!4 &976259021
@@ -64319,7 +64319,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5928106606898212179, guid: 43d2b18616153d4449e0d983e955a91a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
