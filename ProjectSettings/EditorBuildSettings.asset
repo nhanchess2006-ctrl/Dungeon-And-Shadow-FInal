@@ -29,15 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LeveL_2.unity
     guid: 58dc8e0d749c43f4bb04243758901072
-  - enabled: 1
-    path: "Assets/Scenes/Tui_Th\xEAm_CutScene_M\u1EDBi_\u1EDE_\u0110\xE2y_Tui_Kh\xF4ng_\u0110\u1EE5ng_D\xF4_G\xEC_Nha/Cutscene_Cu\u1ED1i_Lv2_Tr\u1EA1m_Tr\xE1n_Boss.unity"
-    guid: 2493e1097b030fa4293700ca83b8e021
-  - enabled: 1
-    path: "Assets/Scenes/Tui_Th\xEAm_CutScene_M\u1EDBi_\u1EDE_\u0110\xE2y_Tui_Kh\xF4ng_\u0110\u1EE5ng_D\xF4_G\xEC_Nha/Cutscene_\u0110\u1EA7u_Lv3_\u0110u\u1ED5i_Theo_Boss.unity"
-    guid: 3a3466e166603ec43b54d9c32a981753
-  - enabled: 1
-    path: "Assets/Scenes/Tui_Th\xEAm_CutScene_M\u1EDBi_\u1EDE_\u0110\xE2y_Tui_Kh\xF4ng_\u0110\u1EE5ng_D\xF4_G\xEC_Nha/Cutscene_Cu\u1ED1i_Lv3_C\xE1i_K\u1EBFt_C\xF3_H\u1EADu.unity"
-    guid: 96ec2480aa9ae664bbfd5f2ffed7f886
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39288e01ea0bd25409f99304100dbd65, type: 3}
   m_Name: Boss_Bringer_Of_Death
   m_EditorClassIdentifier: 
-  characterName: Reaper
-  characterAvatar: {fileID: -226788162, guid: 7f3ea69451df3874385a5b2b0247c21d, type: 3}
-  combinedLines: '"Ah... the little rat who slipped through my fingers. And you brought
-    a fallen captain with you. How pathetic."'
+  characterName: Bringer_Of_Death
+  characterAvatar: {fileID: 1116554618, guid: 7f3ea69451df3874385a5b2b0247c21d, type: 3}
+  combinedLines: 

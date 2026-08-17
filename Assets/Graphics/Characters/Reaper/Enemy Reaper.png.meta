@@ -1840,28 +1840,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Enemy Reaper_64
-      rect:
-        serializedVersion: 2
-        x: 226
-        y: 668
-        width: 40
-        height: 39
-      alignment: 9
-      pivot: {x: 0.545313, y: 0.46001062}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fce6998646a1ca94b99165f9e12761a6
-      internalID: -226788162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1937,7 +1915,6 @@ TextureImporter:
       Enemy Reaper_61: 2044394183
       Enemy Reaper_62: 1584495080
       Enemy Reaper_63: 1478866749
-      Enemy Reaper_64: -226788162
       Enemy Reaper_7: -1688385084
       Enemy Reaper_8: 2089171426
       Enemy Reaper_9: 1914848547
