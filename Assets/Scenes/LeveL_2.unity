@@ -2024,6 +2024,14 @@ MonoBehaviour:
     go."
   npcAppearDelay: 2
   dialogueDuration: 5
+  useGroundSpawnForQuestNPC: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  npcSpawnDistance: 1.46
+  groundCheckHeight: -0.06
+  groundCheckDistance: 1.4
+  groundOffset: 1.2
   chestQuestManager: {fileID: 976259020}
   questLightController: {fileID: 976259019}
 --- !u!1001 &544520661
@@ -63923,8 +63931,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3
-  m_fontSizeBase: 3
+  m_fontSize: 4.4
+  m_fontSizeBase: 4.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -63961,7 +63969,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 84.45359, y: 29.290861, z: 66.85065, w: 15.656432}
+  m_margin: {x: 84.45359, y: 24.86515, z: 66.85065, w: 11.722467}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -64012,10 +64020,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Object_Waypoint - Enter - level2_r\u1EEBng"
       objectReference: {fileID: 0}
-    - target: {fileID: 6587149263153612741, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
-      propertyPath: respwanPoint
-      value: 
-      objectReference: {fileID: 1919956650}
     - target: {fileID: 6587149263153612741, guid: 4b69ec358c74b3b4eb046aa65c7945e6, type: 3}
       propertyPath: transferToScene
       value: "level2_r\u1EEBng"
@@ -66050,37 +66054,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1919956649
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1919956650}
-  m_Layer: 7
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1919956650
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919956649}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.92, y: 0.38, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1925441186 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7566861989324100011, guid: 240a5ad2871f3d74e970724df7014414, type: 3}
@@ -66230,8 +66203,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.25, y: 0.05}
-  m_SizeDelta: {x: 57.1, y: 18.3}
+  m_AnchoredPosition: {x: -0.328, y: 0.05}
+  m_SizeDelta: {x: 62.3, y: 26.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1929641183
 MonoBehaviour:
@@ -67519,7 +67492,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 975135308}
   - {fileID: 619394802}
-  - {fileID: 1919956650}
   - {fileID: 3391262874998817962}
   - {fileID: 777192216541187196}
   - {fileID: 802100064}
