@@ -22,7 +22,7 @@ public class SaveManager : MonoBehaviour
     private IEnumerator Start()
     {
         Debug.Log(Application.persistentDataPath);
-        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName,encryptData);
+        dataHandler = new FileDataHandler(Application.persistentDataPath, fileName, encryptData);
         allSaveables = FindISaveables();
 
         yield return null;
@@ -46,7 +46,7 @@ public class SaveManager : MonoBehaviour
 
     public void SaveGame()
     {
-        foreach(var saveable in allSaveables)
+        foreach (var saveable in allSaveables)
             saveable.SaveData(ref gameData);
 
         dataHandler.SaveData(gameData);
@@ -70,7 +70,7 @@ public class SaveManager : MonoBehaviour
 
     private List<ISaveable> FindISaveables()
     {
-        return 
+        return
             FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None)
             .OfType<ISaveable>()
             .ToList();

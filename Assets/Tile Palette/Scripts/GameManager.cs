@@ -27,10 +27,7 @@ public class GameManager : MonoBehaviour, ISaveable
 
     public void ContinuePlay()
     {
-        
-            ChangeScene("Tanh_Level1", RespawnType.NonSpecific);
-            
-     
+        ChangeScene(lastScenePlayed, RespawnType.NonSpecific);
     }
 
     public void RestartScene()
@@ -151,7 +148,7 @@ public class GameManager : MonoBehaviour, ISaveable
         lastPlayerPosition = data.lastPlayerPosition;
 
         if (string.IsNullOrEmpty(lastScenePlayed))
-            lastScenePlayed = "Level_0";
+            lastScenePlayed = "Tanh_Level1";
 
         dataLoaded = true;
     }

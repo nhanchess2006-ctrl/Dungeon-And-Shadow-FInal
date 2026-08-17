@@ -130,7 +130,9 @@ public class Inventory_Player : Inventory_Base
 
     public override void LoadData(GameData data)
     {
-        gold = data.gold;   
+        gold = data.gold;
+
+        float savedHealthPercent = player.health.GetHealthPercent();
 
         foreach (var entry in data.inventory)
         {
@@ -148,7 +150,7 @@ public class Inventory_Player : Inventory_Base
             for (int i = 0; i < stackSize; i++)
             {
                 Inventory_Item itemToLoad = new Inventory_Item(itemData);
-                AddItem(itemToLoad);    
+                AddItem(itemToLoad);
             }
         }
 
@@ -160,12 +162,16 @@ public class Inventory_Player : Inventory_Base
             ItemDataSO itemData = itemDataBase.GetItemData(saveId);
             Inventory_Item itemToLoad = new Inventory_Item(itemData);
 
-            var slot = equipList.Find(slot => slot.slotType == equipemntSlotType && slot.HasItem() == false);
+            var slot = equipList.Find(slot =>
+                slot.slotType == equipemntSlotType &&
+                slot.HasItem() == false);
 
             slot.equipedItem = itemToLoad;
             slot.equipedItem.AddModifiers(player.stats);
             slot.equipedItem.AddItemEffect(player);
         }
+
+        player.health.SetHealthToPercent(savedHealthPercent);
 
         TriggerUpdateUI();
     }
