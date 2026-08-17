@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 39288e01ea0bd25409f99304100dbd65, type: 3}
-  m_Name: Boss_Bringer_Of_Death
+  m_Name: Player_Talk 10
   m_EditorClassIdentifier: 
-  characterName: Reaper
-  characterAvatar: {fileID: -226788162, guid: 7f3ea69451df3874385a5b2b0247c21d, type: 3}
-  combinedLines: '"Ah... the little rat who slipped through my fingers. And you brought
-    a fallen captain with you. How pathetic."'
+  characterName: Alice
+  characterAvatar: {fileID: -1920238846, guid: e5c8f84f2dd732f448fcc1d6081481eb, type: 3}
+  combinedLines: '"Everyone... It''s finally over. You can rest now." | "Thank you,
+    Commander... for not leaving me behind that night."'
